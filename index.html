@@ -1,0 +1,1031 @@
+<html>
+
+<head>
+  <title>SU</title>
+  <meta name='viewport' content="width=device-width" initial-scale="1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap');
+
+    * {
+      font-family: 'Prompt', sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      display: flex;
+      background-color: #012d36;
+      color: white;
+      width: 100vw;
+      padding-left: 0px;
+      height: 130px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      justify-content: space-between;
+    }
+
+    .icon {
+      transform: scale(1.1);
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    .user_info {
+      display: flex;
+
+    }
+
+    .fa-user {
+      margin-right: 20px;
+      font-size: 28px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .name1 {
+      font-size: 22px;
+    }
+
+    .text-box {
+      display: flex;
+      flex-direction: column;
+      margin: auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table,
+    th,
+    td {
+      font-size: 18px;
+      border: 3px rgb(255, 162, 190);
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      height: 75px
+    }
+
+    td {
+      padding: 15px 0;
+    }
+
+    .logout-btn {
+      position: fixed;
+      font-size: 17px;
+      border: none;
+      border-radius: 5px;
+      width: 80px;
+      height: 30px;
+      background-color: #cfcfcf;
+      color: #777777;
+      font-weight: bold;
+      line-height: 120%;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .logout-btn:hover {
+      background-color: #cfad6c;
+      color: #fff;
+    }
+
+    .add-subj {
+      font-size: 16px;
+      border: 1px solid #6e6e6e;
+      width: 75%;
+      text-align: center;
+      border-radius: 5px;
+      padding: 1px 3px;
+    }
+
+    .register-btn {
+      cursor: pointer;
+      border: none;
+      background-color: #76fe7f;
+      font-size: 16px;
+      padding: 2px 5px;
+      color: rgb(0, 0, 0);
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .table1 {
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 2.25%;
+      width: 80%;
+      height: 80%;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+      font-family: arial;
+      font-weight: bold;
+      letter-spacing: 1px;
+      position: relative;
+      color: #fff;
+
+
+
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 5%;
+      opacity: 0;
+      height: 5px;
+      background-image: linear-gradient(to right, #a13a3a, #905a5a);
+      bottom: -10px;
+      left: 30%;
+      transform: translateX (-20%);
+      border-radius: 25px;
+      transition: .4s;
+    }
+
+    nav a:hover::after {
+      width: 40%;
+      opacity: 1;
+    }
+
+    .login-form {
+      position: relative;
+      height: 40px;
+      width: 285px;
+      background-color: #ffffff;
+      border-style: solid;
+      border-color: #cfad6c;
+      margin-bottom: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .login-form:hover,
+    .login-form:focus {
+      position: relative;
+      height: 45px;
+      width: 290px;
+      background-color: #ffffff;
+      border-style: solid;
+      border-color: #cfad6c;
+      margin-bottom: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      transform: scaleX(1.05);
+    }
+
+    #logo-input {
+      margin: 0 20px;
+      padding-right: 10px;
+      font-size: 1.5rem;
+      color: #a6a6a6;
+    }
+
+    .input {
+      border: none;
+      height: 35px;
+      width: 200px;
+      font-size: 1rem;
+      outline: none;
+      color: #012d36;
+    }
+
+    .btn-submit {
+      font-size: 17px;
+      margin-left: 285px;
+      border: none;
+      border-radius: 5px;
+      width: 80px;
+      height: 30px;
+      background-color: #cfcfcf;
+      color: #777777;
+      font-weight: bold;
+    }
+
+    .btn-submit:hover,
+    .btn-submit:focus {
+      font-size: 17px;
+      margin-left: 285px;
+      border: none;
+      border-radius: 5px;
+      width: 80px;
+      height: 30px;
+      background-color: #cfad6c;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login {
+      text-align: center;
+      font-weight: bold;
+      font-size: 45px;
+      margin-bottom: 40px;
+      color: #cfad6c;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    .header {
+      display: flex;
+      justify-content: end;
+    }
+
+    .welcome-card {
+      color: #012d36;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .welcome {
+      font-size: 30px;
+    }
+
+    .name2 {
+      font-family: 'Prompt', sans-serif;
+      font-size: 30px;
+    }
+
+    .line {
+      margin-top: 100px;
+      width: 1000px;
+      border-top: 4px solid #cfad6c;
+    }
+
+    .nav {
+      display: flex;
+      padding: 40px 60px;
+      border-radius: 10px;
+
+    }
+
+    .nav_p {
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+      font-family: arial;
+      font-weight: bold;
+      letter-spacing: 1px;
+      position: relative;
+      color: #fff;
+
+
+
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 5%;
+      opacity: 0;
+      height: 5px;
+      background-image: linear-gradient(to right, #cfad6c, #cf8907);
+      bottom: -10px;
+      left: 30%;
+      transform: translateX (-20%);
+      border-radius: 25px;
+      transition: .4s;
+    }
+
+    nav a:hover::after {
+      width: 40%;
+      opacity: 1;
+    }
+
+    .register-btn {
+      cursor: pointer;
+      border: none;
+      background-color: #76fe7f;
+      font-size: 16px;
+      padding: 2px 5px;
+      color: rgb(0, 0, 0);
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .register-btn2 {
+      cursor: pointer;
+      border: none;
+      background-color: #f56b6b;
+      font-size: 16px;
+      padding: 2px 5px;
+      color: rgb(0, 0, 0);
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+
+    h1 {
+      color: #fff;
+      font-size: 45px;
+    }
+
+    .popup {
+      color: black;
+      border: 5px solid #cfad6c;
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 430px;
+      height: 100px;
+      top: -280px;
+      left: -18px;
+      background-color: #fff;
+      border-radius: 17px;
+    }
+    .a1{
+      border:1px solid red;
+    }
+
+    .popup2 {
+      color: #012d36;
+      border: 5px solid #cfad6c;
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 300px;
+      height: 100px;
+      top: -600px;
+      left: 800px;
+      background-color: #fff;
+      border-radius: 17px;
+    }
+
+    .popup3 {
+      color: #012d36;
+      align-items: center;
+      position: relative;
+      width: 760px;
+      top: -720px;
+      left: 600px;
+      background-color: #fff;
+      border-radius: 17px;
+      border: 5px solid #cfad6c;
+    }
+
+    .name-card {
+      position: absolute;
+      display: flex;
+      top: 9px;
+      left: 0;
+      height: 110px;
+    }
+
+    .b1 {
+      background-color: #012d36;
+    }
+
+    .b2 {
+      background-color: #fff;
+    }
+
+    .welcome-text {
+      color: #012d36;
+    }
+
+    .b3 {
+      background-color: #012d36;
+      color: white;
+    }
+
+    .login-card {
+      margin-top: 15vh;
+    }
+  </style>
+</head>
+
+<body id="r4">
+  <div id="r1"></div>
+
+  <script>
+    var objPeople2 = {
+      "tanasit.van@gmail.com": {
+        username: "tanasit.van@gmail.com",
+        password: "deffy",
+        class: "student",
+        fullname: "ธนาสิทธิ์ วนชยางค์กูล",
+        id: "6410742396",
+        selected: {},
+        confirm: false
+      },
+      "orapa.nab@gmail.com": {
+        username: "orapa.nab@gmail.com",
+        password: "orapy",
+        class: "student",
+        fullname: "อรภา นาบำรุง",
+        id: "6410742271",
+        selected: {},
+        confirm: false
+      },
+      "chayapat.sam@gmail.com": {
+        username: "chayapat.sam@gmail.com",
+        password: "mimi",
+        class: "student",
+        fullname: "ชญาภัช สมาภาคย์",
+        id: "6410742347",
+        selected: {},
+        confirm: false
+      },
+      "pradipat.jar@gmail.com": {
+        username: "pradipat.jar@gmail.com",
+        password: "pat1",
+        class: "student",
+        fullname: "ประดิพัทธ์ เจริญพร",
+        id: "6410742263",
+        selected: {},
+        confirm: false
+      },
+      ajarnjack: {
+        username: "ajarnjack",
+        password: "ajarnjack",
+        class: "teacher",
+        fullname: "รศ.ดร.วีรชัย อโณทัยไพบูลย์",
+        id: "6000000001"
+      },
+      '1': {
+        username: "1",
+        password: "1",
+        class: "teacher",
+        fullname: "อาจารย์",
+        id: "000000"
+      },
+      '2': {
+        username: "2",
+        password: "2",
+        class: "student",
+        fullname: "นักเรียน",
+        id: "000000",
+        selected: {},
+        confirm: false
+      }
+    };
+
+    var c2 = {
+      SF210_1: {code: "SF210", name: "PROGRAMMING SKILL DEVELOPMENT 1", unit: "3", sec: "760001", time: "จันทร์ / 9:30 - 12:30", c102: 99},
+      SF210_2: {code: "SF210", name: "PROGRAMMING SKILL DEVELOPMENT 1", unit: "3", sec: "760002", time: "จันทร์ / 13:30 - 16:30", c102: 99},
+      SF220_1: {code: "SF220", name: "INTRODUCTION TO SOFTWARE ENGINEERING", unit: "3", sec: "760001", time: "อังคาร / 9:30 - 12:30", c102: 99},
+      SF230_1: {code: "SF230", name: "LINEAR ALGEBRA AND NUMBERICAL EMTHODS FOR COMPUTER ENGINEERS", unit: 3, sec: 760001, time: "พุธ / 9:30 - 12:30", c102: 99},
+      TU107_1: {code: "TU107", name: "DIGITAL SKILL AND PROBLEM SOLVING", unit: "3", sec: "760001", time: "พุธ / 13:30 - 16:30</th>", c102: 99},
+      TU109_1: {code: "TU109", name: "INNOVATION AND ENTREPRENEURIAL MINDSET", unit: "3", sec: "760001", time: "ศุกร์ / 9:30 - 12:30", c102: 99},
+      TU105_1: {code: "TU105", name: "ENGLISH SKILL DEVELOPMENT", unit: "3", sec: "760001", time: "ศุกร์ / 13:30 - 16:30", c102: 99}
+    };
+    var u2 = "undefined";
+    f000();
+    function f000() {
+      a115 = localStorage.length;
+      if ((a115 == 0) == false) {
+        f33();
+      }
+      if (a115 == 0) {
+        f34();
+        f33();
+        a92 = Object.keys(c1);
+        a93 = a92.length;
+        for (i5 = 0; i5 < a93; i5++) {
+          a94 = a92[i5];
+          if (a94 == "SF230_1") {
+            c1[a94].c101 = 1;
+          }
+          else if (a94 == "TU107_1") {
+            c1[a94].c101 = 0;
+          }
+          else {
+            c1[a94].c101 = c1[a94].c102;
+          }
+          a101 = c1[a94].sec;
+          a102 = c1[a94].code;
+          a103 = a102 + "_" + a101;
+          c1[a103] = c1[a94];
+          delete c1[a94];
+          a96 = Object.keys(objPeople);
+          a95 = a96.length;
+          for (i6 = 0; i6 < a95; i6++) {
+            a97 = a96[i6];
+            if (objPeople[a97].class == "student") {
+              objPeople[a97].selected[a103] = false;
+            }
+          }
+        }
+      }
+
+      f32();
+      f33();
+      a11 = "i1.html";
+      f4();
+    }
+    function f001() {
+      a47 = document.getElementById(a49);
+      a47.addEventListener("keyup", function (a48) {
+        if (a48.keyCode === 13) {
+          a48.preventDefault;
+          getInfo();
+        }
+      });
+    }
+    function getInfo() {
+      u1 = document.getElementById('username').value;
+      p1 = document.getElementById('password').value;      
+      if (objPeople[u1] == undefined) {
+        a50 = "<div class='popup'><p style='margin: 0 auto;font-size: 20px;'>Username not found</p></div>";
+        document.getElementById('username').value ='';
+        f13();
+      }
+      else if (u1 == objPeople[u1].username && p1 == objPeople[u1].password) {
+        if (objPeople[u1].class == "student") {
+          a11 = "menu.html";
+        }
+        else {
+          a11 = "enroll_teacher.html";
+        }
+        f4();
+        f32();
+        f33();
+      }
+      else {
+        a54 = objPeople[u1].fullname;
+        a50 = "<div class='popup'><div style='margin: 0 auto;font-size: 20px;'><p>&nbsp&nbspThe password you entered is incorrect.</p><p>&nbsp&nbspAre you&nbsp" +a54+ "?</p></div></div>";
+        f13();        
+      }      
+      document.getElementById('password').value ='';
+    }
+    function f1() {
+      objPeople[u1].selected[a2] = true;
+      c1[a2].c101 = c1[a2].c101 - 1;
+      document.getElementById(a2 + "8").innerHTML = "<button class='register-btn2' onclick=" + '"' + "a2='" + a2 + "';f2();" + '"' + ">ยกเลิก</button>";
+      f32();
+      f33();
+      f3();
+    }
+    function f2() {
+      objPeople[u1].selected[a2] = false;
+      c1[a2].c101 = c1[a2].c101 + 1;
+      document.getElementById(a2 + "8").innerHTML = "<button class='register-btn' onclick=" + '"' + "a2='" + a2 + "';f1();" + '"' + ">เลือก</button>";
+      f32();
+      f33();
+      f3();
+    }
+    function f3() {
+      a35 = 0;
+      a20 = objPeople[u1].selected;
+      a8 = Object.keys(c1);
+      a9 = a8.length;
+      for (i2 = 0; i2 < a9; i2++) {
+        a87 = a8[i2];
+        document.getElementById(a87 + '7').innerHTML = c1[a8[i2]].c101 + "/" + c1[a8[i2]].c102;
+        a22 = a20[a87];
+        a41 = c1[a87].c101;
+        if (a22 == true) {
+          a35 = a35 + 1;
+          document.getElementById(a87 + "8").innerHTML = "<button class='register-btn2' onclick=" + '"' + "a2='" + a87 + "';f2();" + '"' + ">ยกเลิก</button>";
+        }
+        if ((a22 == true) == false && (a41 == 0) == false) {
+          document.getElementById(a87 + "8").innerHTML = "<button class='register-btn' onclick=" + '"' + "a2='" + a87 + "';f1();" + '"' + ">เลือก</button>";
+        }
+        if (a41 == 0) {
+          document.getElementById(a87 + '7').innerHTML = "<div class='register-btn2' >เต็มแล้ว</div>";
+        }
+      }
+      if (a35 > 0) {
+        document.getElementById('a33').innerHTML = "<button class='register-btn' id='registerbtn' onclick='f9();' style='margin: 10px 0 0 0;width: 150px;'>ขอโควตาวิชาที่เลือก</button>";
+      }
+      if ((a35 > 0) == false) {
+        document.getElementById('a33').innerHTML = "";
+      }
+      f32();
+      f33();
+    }
+    function f4() {
+      if (a11 == "i1.html" && u1 == "undefined") {
+        a114 = '<div id="r1" class="login-card"><img style="" src="SarochaIcon.png?width=450&height=400"><div class="login"><p style="margin: 0 auto;width: 203px;"class="login">LOGIN</p></div><form class="card"><div class="login-form"><i class="fas fa-user" id="logo-input"></i><input type="text" class="input" id="username" placeholder="username" onkeyup="a49=' + "'username'" + ';f001();"></div><div class="login-form"><i class="fas fa-lock" id="logo-input"></i><input type="password" class="input" id="password" placeholder="password" onkeyup="a49=' + "'password'" + ';f001();"></div><div id="d2"><input type="button" class="btn-submit" value="login" onclick="a11=' + "'menu.html'" + ';getInfo();"></div></form></div><div id="d1" style="width:0;heigth:0;"></div>';
+      }
+      if (a11 == "i1.html" && u1 != "undefined") {
+        if (objPeople[u1]==undefined){
+          a114 = '<div id="r1" class="login-card"><img src="SarochaIcon.png?width=450&height=400"><div class="login"><p style="margin: 0 auto;width: 203px;"class="login">LOGIN</p></div><form class="card"><div class="login-form"><i class="fas fa-user" id="logo-input"></i><input type="text" class="input" id="username" placeholder="username" onkeyup="a49=' + "'username'" + ';f001();"></div><div class="login-form"><i class="fas fa-lock" id="logo-input"></i><input type="password" class="input" id="password" placeholder="password" onkeyup="a49=' + "'password'" + ';f001();"></div><div id="d2"><input type="button" class="btn-submit" value="login" onclick="a11=' + "'menu.html'" + ';getInfo();"></div></form></div><div id="d1" style="width:0;heigth:0;"></div>';
+        }
+        if (objPeople[u1]!=undefined){
+          if (objPeople[u1].class == "student") {
+            a11 = "menu.html";
+          }
+          if (objPeople[u1].class == "teacher") {
+            a11 = "enroll_teacher.html";
+          }
+        }        
+      }
+      if (a11 == "menu.html") {
+        a114 = '<header class="header"><nav class="nav"><a href="#" onclick="a11=' + "'menu.html'" + ';f4();"> หน้าหลัก </a>&nbsp;<div id="r3"></div></nav></header><div class="welcome-card"><img src="SarochaIcon.png"><div class=welcome-text><h1 class="welcome-text">Welcome to Sarocha University</h1><p class="name2">ชื่อ: <span id="a12"></span><br>รหัสนักศึกษา: <span id="a13"></span><br>สถานะ: <span id="a14"></span></p><hr class="line"></div></div><footer><button class="logout-btn" onclick="f35();a11=' + "'i1.html'" + ';f4();">Logout</button></footer>';
+      }
+      if (a11 == "enroll.html") {
+        a114 = '<header class="header"><div class="name-card"><img class="icon" src="SarochaIcon.png"><div class="text-box"><h1>รายชื่อวิชา</h1><name class="user_info"><i class="fa-solid fa-user large" id="logo-input"></i><p class="name1">ชื่อ: <span id="a12"></span> รหัสนักศึกษา: <span id="a13"></span> สถานะ: <span id="a14"></span></p></name></div></div><nav class="nav"><a href="#" onclick="a11=' + "'menu.html'" + ';f4();"> หน้าหลัก </a>&nbsp;<div id="r3"></div></nav></header><div class="table1"><table border="1"><tbody id="r2"></tbody></table></div><footer><button class="logout-btn" onclick="f35();a11=' + "'i1.html'" + ';f4();">Logout</button></footer>';
+      }
+      if (a11 == "enroll_teacher.html") {
+        a114 = '<header class="header"><div class="name-card"><img class="icon" src="SarochaIcon.png"><div class="text-box"><h1>รายชื่อวิชา</h1><name class="user_info"><i class="fa-solid fa-user large" id="logo-input"></i><p class="name1">ชื่อ: <span id="a12"></span> รหัสอาจารย์: <span id="a13"></span></p></name></div></div></header><div class="table1"><table border="1"><tbody id="r2"></tbody></table></div><button class="logout-btn" onclick="f35();a11=' + "'i1.html'" + ';f4();">Logout</button><button style="position:fixed;bottom:65px;right:25px;" class="register-btn2" onclick="f36()">Reset</button><div id="d1" style="width: 0px;height: 0px;"></div>';
+      }
+      if (a11 == "result.html") {
+        a114 = '<header class="header"><div class="name-card"><img class="icon" src="SarochaIcon.png"><div class="text-box"><h1>รายชื่อวิชา</h1><name class="user_info"><i class="fa-solid fa-user large" id="logo-input"></i><p class="name1" id="showname1">ชื่อ: <span id="a12"></span> รหัสนักศึกษา: <span id="a13"></span> สถานะ: <span id="a14"></span></p></name></div></div><nav class="nav"><a href="#" onclick="a11=' + "'menu.html'" + ';f4();"> หน้าหลัก </a>&nbsp;<div id="r3"></div></nav></header><div class="table1"><table border="1"><tbody id="r2"></tbody></table></div><footer><button class="logout-btn" onclick="f35();a11=' + "'i1.html'" + ';f4();">Logout</button><div id="d1" style="width: 0px;height: 0px;" class="b1"></div></footer>';
+      }
+      document.getElementById('r1').innerHTML = a114;
+      if (a11 == "i1.html") {
+        f30();
+      }
+      if ((a11 == "i1.html") == false) {
+        f31();
+      }
+      if (a11 == "enroll.html") {
+        f12();
+        f3();
+      }
+      if (a11 == "result.html") {
+        f9();
+        if (a52 == 1) {
+          f14();
+          f16();
+          a52 = 0;
+        }
+        if (a53 == 1) {
+          f15();
+          f16();
+          a53 = 0;
+        }
+      }
+      if (a11 != "enroll_teacher.html" && a11 != "i1.html") {
+        f5();
+        f11();
+      }
+      if (a11 == "enroll_teacher.html") {
+        f12();
+        f6();
+      }
+    }
+    function f5() {
+      document.getElementById("a12").innerHTML = objPeople[u1].fullname;
+      document.getElementById("a13").innerHTML = objPeople[u1].id;
+      a38 = objPeople[u1].confirm;
+      if (a38) {
+        a39 = "ขอโควตาแล้ว";
+      }
+      if (a38 == false) {
+        a39 = "ยังไม่ขอโควตา";
+      }
+      if (a38 == "แก้ไข") {
+        a39 = "กำลังแก้ไขรายวิชา <span style='color:#F56B6B;'>(ยังไม่ยืนยัน)</span>";
+      }
+      document.getElementById("a14").innerHTML = a39;
+    }
+    function f9() {
+      a27 = objPeople[u1].selected;
+      a28 = Object.keys(a27);
+      a29 = a28.length;
+      a32 = '';
+      for (i3 = 0; i3 < a29; i3++) {
+        a17 = a27[a28[i3]];
+        a26 = i3 + 1;
+        if (a26 == 1) {
+          a30 = '<tr><th>รหัสวิชา</th><th>ชื่อวิชา</th><th>หน่วยกิต</th><th>Section</th><th>วัน/เวลา</th></tr>';
+          a32 = a32 + a30;
+        }
+        if (a17 == true) {
+          a79 = a28[i3];
+          a58 = c1[a79].code;
+          a59 = c1[a79].name;
+          a60 = c1[a79].unit;
+          a61 = c1[a79].sec;
+          a62 = c1[a79].time;
+          a74 = "<tr id='" + a79 + "0'>";
+          a65 = "<td><span id='" + a79 + "7'></span></td><td id='" + a79 + "8'></td>";
+          a25 = a74 + "<th>" + a58 + "</th><th>" + a59 + "</th><th>" + a60 + "</th><th>" + a61 + "</th><th>" + a62 + "</th>" + a65 + "</tr>";
+          a32 = a32 + a25;
+        }
+        a37 = objPeople[u1].confirm;
+        if (a26 == a29 && a37 == false) {
+          a31 = '<tr><td></td><td></td><td></td><td></td><td><button class="register-btn" id="registerbtn" onclick="f17();f10();" style="margin: 10px 0 0 0;">ยืนยันการขอโควตา</button></td></tr>';
+          a32 = a32 + a31;
+        }
+        if (a26 == a29 && a37 == "แก้ไข") {
+          a31 = '<tr><td></td><td></td><td></td><td></td><td><button class="register-btn" id="registerbtn" onclick="f18();f10();" style="margin: 10px 0 0 0;">ยืนยันการแก้ไขรายวิชา</button></td></tr>';
+          a32 = a32 + a31;
+        }
+        if (a26 == a29 && a37 == true) {
+          a31 = '<tr><td></td><td></td><td></td><td></td><td><button class="register-btn2" id="registerbtn" onclick="objPeople[u1].confirm=' + "'" + "แก้ไข" + "'" + ';a11=' + "'" + "enroll.html" + "'" + ';f4();" style="margin: 10px 0 0 0;">แก้ไขรายวิชา</button></td></tr>';
+          a32 = a32 + a31;
+        }
+      }
+      document.getElementById('r2').innerHTML = a32;
+    }
+    function f10() {
+      a27 = objPeople[u1].selected;
+      a28 = Object.keys(a27);
+      a29 = a28.length;
+      for (i3 = 0; i3 < a29; i3++) {
+        a17 = a27[a28[i3]];
+        if (a17 == true) {
+          objPeople[u1].confirm = true;
+        }
+      }
+      f32();
+      f33();
+      a11 = "result.html";
+      f4();
+    }
+    function f11() {
+      if (objPeople[u1].confirm == false) {
+        a40 = "<a href='#' onclick=" + '"' + "a11='enroll.html';f4();" + '"' + "> รายชื่อวิชา </a> &nbsp;";
+      }
+      if (objPeople[u1].confirm == true) {
+        a40 = "<a href='#' onclick=" + '"' + "a11='result.html';f4();" + '"' + "> ผลการขอโควตา </a> &nbsp;";
+      }
+      if (objPeople[u1].confirm == "แก้ไข") {
+        a40 = "<a href='#' onclick=" + '"' + "a11='enroll.html';f4();" + '"' + "> แก้ไขรายวิชา </a> &nbsp;";
+      }
+      document.getElementById('r3').innerHTML = a40;
+    }
+    function f12() {
+      a42 = Object.keys(c1);
+      a43 = a42.length;
+      a44 = '';
+      if (a43 == 0) {
+        a44 = a44 + '<tr><th>รหัสวิชา</th><th>ชื่อวิชา</th><th>หน่วยกิต</th><th>Section</th><th>วัน/เวลา</th><th>จำนวนที่ว่าง</th></tr><tr id="' + 'n' + '9"><td></td><td></td><td></td><td></td><td></td><td></td><td id="a33" style="width: 150px;"></td></tr>';
+      }
+      if ((a43 == 0) == false) {
+        for (i4 = 0; i4 < a43; i4++) {
+          a79 = a42[i4];
+          a58 = c1[a79].code;
+          a59 = c1[a79].name;
+          a60 = c1[a79].unit;
+          a61 = c1[a79].sec;
+          a62 = c1[a79].time;
+          a74 = "<tr id='" + a79 + "0'>";
+          a65 = "<td><span id='" + a79 + "7'></span></td><td id='" + a79 + "8'></td>";
+          a46 = a74 + "<th>" + a58 + "</th><th>" + a59 + "</th><th>" + a60 + "</th><th>" + a61 + "</th><th>" + a62 + "</th>" + a65 + "</tr>";
+          a45 = i4 + 1;
+          if (a45 == 1) {
+            if (a11 == "enroll_teacher.html") {
+              a44 = a44 + '<tr><th>รหัสวิชา</th><th>ชื่อวิชา</th><th>หน่วยกิต</th><th>Section</th><th>วัน/เวลา</th><th>จำนวนที่ว่าง</th></tr>';
+            }
+            if ((a11 == "enroll_teacher.html") == false) {
+              a44 = a44 + '<tr class="b3"><th>รหัสวิชา</th><th>ชื่อวิชา</th><th>หน่วยกิต</th><th>Section</th><th>วัน/เวลา</th><th>จำนวนที่ว่าง</th><th>ขอโควตา</th></tr>';
+            }
+          }
+          a44 = a44 + a46;
+          if (a45 == a43) {
+            a44 = a44 + '<tr id="' + 'n' + '9"><td></td><td></td><td></td><td></td><td></td><td></td><td id="a33" style="width: 150px;"></td></tr>';
+          }
+        }
+      }
+      document.getElementById('r2').innerHTML = a44;
+    }
+    function f13() {
+      document.getElementById('d1').innerHTML = a50;
+      a51 = "<input type='button' class='btn-submit' value='เข้าสู่ระบบ' onclick=" + '"' + "a11='menu.html';getInfo();" + '"' + ">";
+      document.getElementById('d2').innerHTML = a51;
+      setTimeout(() => {document.getElementById('d1').innerHTML = "";}, 2000);
+    }
+    function f16() {
+      document.getElementById('d1').innerHTML = a50;
+      setTimeout(() => {document.getElementById('d1').innerHTML = "";}, 2000);
+    }
+    function f14() {
+      a50 = "<div class='popup2'><p style='margin: 0 auto;font-size: 20px;'>ขอโควตาสำเร็จ</p></div>";
+    }
+    function f15() {
+      a50 = "<div class='popup2'><p style='margin: 0 auto;font-size: 20px;'>แก้ไขรายวิชาสำเร็จ</p></div>";
+    }
+    function f19() {
+      a56 = a78;
+      a50 = "<div class='popup2'><p style='margin: 0 auto;font-size: 20px;'>" + a56 + "</p></div>";
+    }
+    a52 = 0;
+    a53 = 0;
+    function f17() {
+      a52 = 1;
+    }
+    function f18() {
+      a53 = 1;
+    }
+    function f6() {
+      a66 = Object.keys(c1);
+      a67 = a66.length;
+      for (i2 = 0; i2 < a67; i2++) {
+        a71 = a66[i2];
+        a68 = c1[a71].c101;
+        a69 = c1[a71].c102;
+        document.getElementById(a71 + "7").innerHTML = a68 + "/" + a69 + " <button class='register-btn' onclick='a106=" + '"' + a71 + '"' + ";f28();'>รายชื่อ</button>";
+        document.getElementById(a71 + "8").innerHTML = "<button class='register-btn2' onclick=" + '"' + "a75='" + a71 + "0';a78='" + a71 + "';f20();" + '"' + ">แก้ไข</button><button style='margin: 0 0 0 10px;' class='register-btn2' onclick=" + '"' + "a88='" + a71 + "'" + ';f22();">ลบ</button>';
+        if (a68 == 0) {
+          document.getElementById(a71 + "7").innerHTML = "<div class='register-btn2' >เต็มแล้ว</div><button class='register-btn' style='margin: 5px 0 0 0;width:106px;' onclick='a106=" + '"' + a71 + '"' + ";f28();'>รายชื่อ</button>";
+        }
+      }
+      a57 = "<button class='register-btn' onclick='a79=" + '"n"' + ";f24();'>เพิ่มวิชา</button>";
+      document.getElementById('a33').innerHTML = a57;
+      f27();
+    }
+    function f20() {
+      a80 = c1[a78].code;
+      a81 = c1[a78].name;
+      a82 = c1[a78].unit;
+      a83 = c1[a78].sec;
+      a84 = c1[a78].time;
+      a85 = c1[a78].c102;
+      a77 = '<td><input type="text" class="add-subj" value="' + a80 + '" id="' + a78 + '1"></td><td><input type="text" class="add-subj" value="' + a81 + '" id="' + a78 + '2"></td><td><input type="text" class="add-subj" value="' + a82 + '" id="' + a78 + '3"></td><td><input type="text" class="add-subj" value="' + a83 + '" id="' + a78 + '4"></td><td><input type="text" class="add-subj" value="' + a84 + '" id="' + a78 + '5"></td><td><input type="text" class="add-subj" value="' + a85 + '" id="' + a78 + '6"></td><td><button style="margin: 0 0 0 10px;" class="register-btn" onclick="a79=' + "'" + a78 + "'" + ';f21();f26();">ยืนยันการแก้ไข</button><button class="register-btn2" onclick="f12();f6();" style="margin: 10px 0 0 10px;">ยกเลิก</button></td>';
+      document.getElementById(a75).innerHTML = a77;
+    }
+    function f21() {
+      c1[a79].code = document.getElementById(a79 + "1").value;
+      c1[a79].name = document.getElementById(a79 + "2").value;
+      c1[a79].unit = document.getElementById(a79 + "3").value;
+      c1[a79].sec = document.getElementById(a79 + "4").value;
+      c1[a79].time = document.getElementById(a79 + "5").value;
+      c1[a79].c102 = document.getElementById(a79 + "6").value;
+      a80 = c1[a79].code;
+      a81 = c1[a79].name;
+      a82 = c1[a79].unit;
+      a83 = c1[a79].sec;
+      a84 = c1[a79].time;
+      a85 = c1[a79].c102;
+      a86 = c1[a79].c101;
+      a74 = "<tr id='" + a79 + "0'>";
+      document.getElementById(a79 + "0").innerHTML = a74 + "<th>" + a80 + "</th><th>" + a81 + "</th><th>" + a82 + "</th><th>" + a83 + "</th><th>" + a84 + "</th><td>" + a86 + "/" + a85 + " <button class='register-btn' onclick='a106=" + '"' + a79 + '"' + ";f28();'>รายชื่อ</button>" + "</td><td id='" + a79 + "8'><button class='register-btn2' onclick=" + '"' + "a75='" + a79 + "0';a78='" + a79 + "';f20();" + '"' + ">แก้ไข</button><button style='margin: 0 0 0 10px;' class='register-btn2' onclick=" + '"' + "a88='" + a79 + "'" + ';f22();">ลบ</button></td></tr>';
+      f32();
+      f33();
+    }
+    function f22() {
+      document.getElementById(a88 + "8").innerHTML = '<button style="margin: 0 0 0 10px;" class="register-btn" onclick="a89=' + "'" + a88 + "'" + ';f23();">ยืนยันการลบ</button><button class="register-btn2" onclick="f12();f6();" style="margin: 10px 0 0 10px;">ยกเลิก</button>';
+    }
+    function f23() {
+      delete c1[a89];
+      a98 = Object.keys(objPeople);
+      a99 = a98.length;
+      for (i7 = 0; i7 < a99; i7++) {
+        a100 = a98[i7];
+        if (objPeople[a100].class == "student") {
+          delete objPeople[a100].selected[a89];
+        }
+      }
+      f12();
+      f6();
+      a56 = "ลบสำเร็จ";
+      a50 = "<div class='popup2'><p style='margin: 0 auto;font-size: 20px;'>" + a56 + "</p></div>";
+      f16();
+      f32();
+      f33();
+    }
+    function f24() {
+      a91 = '<td><input type="text" class="add-subj" id="' + "n" + '1"></td><td><input type="text" class="add-subj" id="' + "n" + '2"></td><td><input type="text" class="add-subj" id="' + "n" + '3"></td><td><input type="text" class="add-subj" id="' + "n" + '4"></td><td><input type="text" class="add-subj" id="' + "n" + '5"></td><td><input type="text" class="add-subj" id="' + "n" + '6"></td><td><button style="margin: 0 0 0 10px;width:101px;" class="register-btn" onclick="f25();">ยืนยันการเพิ่ม</button><button class="register-btn2" onclick="f12();f6();" style="margin: 10px 0 0 10px;">ยกเลิก</button></td>';
+      document.getElementById(a79 + "9").innerHTML = a91;
+      f37();
+    }
+    function f37() {
+      a113 = window.innerHeight;
+      window.scrollBy(0, a113);
+    }
+    function f25() {
+      a79 = document.getElementById("n" + "1").value;
+      c1[a79] = {};
+      c1[a79].name = document.getElementById("n" + "2").value;
+      c1[a79].unit = document.getElementById("n" + "3").value;
+      c1[a79].sec = document.getElementById("n" + "4").value;
+      c1[a79].time = document.getElementById("n" + "5").value;
+      c1[a79].c102 = Number(document.getElementById("n" + "6").value);
+      c1[a79].c101 = c1[a79].c102;
+      a105 = c1[a79].sec;
+      a104 = a79 + "_" + a105;
+      c1[a79].code = a79;
+      c1[a104] = c1[a79];
+      delete c1[a79];
+      f12();
+      f6();
+      a98 = Object.keys(objPeople);
+      a99 = a98.length;
+      for (i7 = 0; i7 < a99; i7++) {
+        a100 = a98[i7];
+        if (objPeople[a100].class == "student") {
+          objPeople[a100].selected[a79] = false;
+        }
+      }
+      a56 = "เพิ่มสำเร็จ";
+      a50 = "<div class='popup2'><p style='margin: 0 auto;font-size: 20px;'>" + a56 + "</p></div>";
+      f16();
+      f32();
+      f33();
+    }
+    function f26() {
+      a56 = "แก้ไขสำเร็จ";
+      a50 = "<div class='popup2'><p style='margin: 0 auto;font-size: 20px;'>" + a56 + "</p></div>";
+      f16();
+    }
+    function f27() {
+      document.getElementById('a12').innerHTML = objPeople[u1].fullname;
+      document.getElementById('a13').innerHTML = objPeople[u1].id;
+    }
+    function f28() {
+      a98 = Object.keys(objPeople);
+      a99 = a98.length;
+      a56 = '';
+      a111 = 0;
+      for (i8 = 0; i8 < a99; i8++) {
+        if (objPeople[a98[i8]].class == "student" && objPeople[a98[i8]].selected[a106] == true) {
+          a108 = objPeople[a98[i8]].id;
+          a109 = objPeople[a98[i8]].fullname;
+          a110 = objPeople[a98[i8]].confirm;
+          a111 = a111 + 1;
+          if (a110 == false) {
+            a110 = "ยังไม่ยืนยัน";
+          }
+          if (a110 == true) {
+            a110 = "ยืนยันแล้ว";
+          }
+          if (a110 == "แก้ไข") {
+            a110 = "กำลังแก้ไข (ยังไม่ยืนยัน)";
+          }
+          a107 = "<tr><th>" + a111 + "&nbspชื่อ: " + a109 + "</th><th>&nbspรหัสนักศึกษา: " + a108 + "</th><th>&nbspสถานะ: " + a110 + "</th></tr>";
+          a108 = "<p style='margin: 0px auto 10px 40px;font-size: 20px;'>" + a107 + "</p>";
+          a109 = "<div style='display:flex;'>" + a108 + "</div>";
+          a56 = a56 + a109;
+        }
+      }
+
+      a50 = "<div class='popup3'><div><div style='cursor:pointer;width:20px;height:20px;display:flex;margin: 10px 20px auto auto;line-height:20px;' onclick='f29();';>X</div></div><div>" + a56 + "</div>";
+      if (a56 == '') {
+        a56 = "ยังไม่มีคนขอโควตาวิชานี้";
+        a50 = "<div class='popup3'><div><div style='cursor:pointer;width:20px;height:20px;display:flex;margin: 10px 20px auto auto;line-height:20px;' onclick='f29();'>X</div></div><div style='display:flex;';><p style='margin: 0px auto 10px auto;font-size: 20px;'>" + a56 + "</p></div>";
+      }
+      document.getElementById('d1').innerHTML = a50;
+    }
+    function f29() {
+      document.getElementById('d1').innerHTML = "";
+    }
+    function f30() {
+      document.getElementById("r4").className = "b1";
+    }
+    function f31() {
+      document.getElementById("r4").className = "b2";
+    }
+    function f32() {
+      c3 = JSON.stringify(c1);
+      localStorage.setItem("c1", c3);
+      u3 = JSON.stringify(u1);
+      localStorage.setItem("u1", u3);
+      objPeople3 = JSON.stringify(objPeople);
+      localStorage.setItem("objPeople", objPeople3);
+    }
+    function f34() {
+      c3 = JSON.stringify(c2);
+      localStorage.setItem("c1", c3);
+      u3 = JSON.stringify(u2);
+      localStorage.setItem("u1", u3);
+      objPeople3 = JSON.stringify(objPeople2);
+      localStorage.setItem("objPeople", objPeople3);
+    }
+    function f33() {
+      c1 = JSON.parse(localStorage["c1"]);
+      u1 = JSON.parse(localStorage["u1"]);
+      objPeople = JSON.parse(localStorage["objPeople"]);
+    }
+    function f35() {
+      u2 = "undefined";
+      u3 = JSON.stringify(u2);
+      localStorage.setItem("u1", u3);
+      u1 = JSON.parse(localStorage["u1"]);
+    }
+    function f36() {
+      localStorage.clear();
+      f000();
+    }
+  </script>
+</body>
+
+</html>
